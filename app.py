@@ -28,7 +28,7 @@ st.caption("Retail planning dashboard for smarter stock and sales decisions")
 # ---------------- DATA ----------------
 @st.cache_data
 def load_data():
-    df = pd.read_excel("data/Online Retail.xlsx")
+    df = pd.read_excel("data/Online Retail.xlsx", engine="openpyxl")
     df = df.dropna(subset=["Description"])
     df = df[df["Quantity"] > 0]
     df = df[df["UnitPrice"] > 0]
